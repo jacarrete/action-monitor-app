@@ -1,0 +1,11 @@
+server:
+  port: 8082
+
+spring:
+  kafka:
+    topic:
+      name: transaction
+    consumer:
+      group-id: group-1
+      auto-offset-reset: earliest
+      bootstrap-servers: ${KAFKA_SERVERS:kafka-server:9092}
