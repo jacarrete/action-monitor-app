@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Action-monitor-Websocket</title>
+
+    <script src="lib/sockjs.js"></script>
+    <script src="lib/stomp.js"></script>
+    <link data-th-href="@{/css/main.css}" rel="stylesheet">
+
+    <script type="text/javascript">
+        let stompClient = null;
+
+        function connect() {
+            //const socket = new SockJS('${endpoint}');
+            const socket = new SockJS('http://localhost:8082/action-monitor');
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function(frame) {
+                //stompClient.subscribe('/${topic}', function(result) {
+                stompClient.subscribe('/topic', function(result) {
+                    print(result.body);
+                });
+
+                print("Websocket connection established!");
+            });
+        }
+
+        function disconnect() {
+            stompClient.disconnect();
+        }
+
+        function print(response) {
+            const messages = document.getElementById('messages');
+            const div = document.createElement('div');
+            div.innerHTML = response;
+            messages.appendChild(div);
+        }
+
+        window.onbeforeunload = disconnect;
+        connect();
+    </script>
+
+</head>
+
+<body>
+<h1>Kafka Monitor Websocket CSS2</h1>
+<div id="messages"></div>
+</body>
+
+</html>

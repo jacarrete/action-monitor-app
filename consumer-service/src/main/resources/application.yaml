@@ -9,3 +9,5 @@ spring:
       group-id: group-1
       auto-offset-reset: earliest
       bootstrap-servers: ${KAFKA_SERVERS:kafka-server:9092}
+
+websocket.topic: topic

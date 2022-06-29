@@ -11,6 +11,10 @@ cd ../consumer-service
 echo 'Building consumer service image ...'
 docker build -t consumer-service .
 
+cd ../web-socket
+echo 'Building web socket image ...'
+docker build -t web-socket .
+
 cd ..
 
 echo 'Starting stack up ...'

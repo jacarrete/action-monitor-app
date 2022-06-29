@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -13,10 +14,10 @@ import java.time.LocalDate;
 @ToString(of = {"id", "message", "sender", "messageDate"})
 public class KafkaMessage {
 
-    private String message;
-    private String sender;
+    private String id = UUID.randomUUID().toString();
+    private LocalDate messageDate = LocalDate.now();
 
-    private String id;
-    private LocalDate messageDate;
+    private String sender;
+    private String message;
 
 }

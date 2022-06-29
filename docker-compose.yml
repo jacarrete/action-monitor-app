@@ -53,6 +53,13 @@ services:
     networks:
       - kafka-net
 
+  web-socket:
+    image: "web-socket"
+    ports:
+      - 8083:8080
+    networks:
+      - kafka-net
+
   kafdrop:
     image: obsidiandynamics/kafdrop
     restart: "no"

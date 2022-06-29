@@ -15,12 +15,12 @@ import java.util.UUID;
 @ToString(of = {"id", "message", "sender", "messageDate"})
 public class KafkaMessage {
 
-    private String message;
-    private String sender;
-
     @JsonIgnore
     private String id = UUID.randomUUID().toString();
     @JsonIgnore
     private LocalDate messageDate = LocalDate.now();
+
+    private String sender;
+    private String message;
 
 }
