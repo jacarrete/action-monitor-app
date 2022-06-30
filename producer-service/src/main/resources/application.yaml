@@ -6,7 +6,7 @@ spring:
     topic:
       name: transaction
     producer:
-      bootstrap-servers: ${KAFKA_SERVERS:kafka-server:9092}
+      bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
@@ -15,4 +15,14 @@ spring:
         retry.backoff.ms: 1000
     admin:
       properties:
-        bootstrap.servers: ${KAFKA_SERVERS:kafka-server:9092}
+        bootstrap.servers: ${KAFKA_SERVERS:localhost:9092}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+
+info:
+  application:
+    version: '@project.version@'

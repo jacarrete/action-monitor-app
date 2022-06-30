@@ -11,3 +11,13 @@ spring:
       bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
 
 websocket.topic: topic
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+
+info:
+  application:
+    version: '@project.version@'

@@ -54,7 +54,6 @@ Need more time to review. It is to be done!!
 
 Need to have a look!!
 
-
 # Improvements
 - Creation a common project with all shared objects/DTOs.
 
@@ -67,3 +66,13 @@ Need to have a look!!
 - Authentication/Login for the chat users.
 
 - Using CDC (Change data capture pattern) using Debezium and Kafka connect instead of listeners.
+
+# Stretch Goals
+- Producer version of application
+http://localhost:8081/actuator/info
+
+- Consumer version of application
+http://localhost:8082/actuator/info
+
+- Producer health of application
+http://localhost:8081/actuator/health
