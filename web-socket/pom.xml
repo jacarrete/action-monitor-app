@@ -9,7 +9,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.betvictor</groupId>
     <artifactId>web-socket</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>web-socket</name>
