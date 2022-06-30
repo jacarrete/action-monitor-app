@@ -1,12 +1,12 @@
-package com.betvictor.consumeservice;
+package com.betvictor.listenerservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ConsumerServiceApplicationTests {
+class ListenerServiceApplicationTests {
 
-//    @Test
+    @Test
     void contextLoads() {
     }
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 echo 'Building the jar ...'
-#mvn clean test package
 mvn clean package
 
 cd producer-service
@@ -14,6 +13,10 @@ docker build -t consumer-service .
 cd ../web-socket
 echo 'Building web socket image ...'
 docker build -t web-socket .
+
+#cd ../listener-service
+#echo 'Building listener service image ...'
+#docker build -t listener-service .
 
 cd ..
 

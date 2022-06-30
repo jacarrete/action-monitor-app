@@ -12,6 +12,7 @@
         <module>producer-service</module>
         <module>consumer-service</module>
         <module>web-socket</module>
+<!--        <module>listener-service</module>-->
     </modules>
 
 </project>

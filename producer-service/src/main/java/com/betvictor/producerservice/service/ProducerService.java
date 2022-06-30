@@ -20,6 +20,7 @@ public class ProducerService {
     public void sendMessage(KafkaMessage kafkaMessage) {
 
         log.info("Sending... " + kafkaMessage + " to topic: " + topicName);
+
         kafkaTemplate.send(topicName, kafkaMessage);
 
     }

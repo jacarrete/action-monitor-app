@@ -1,18 +1,61 @@
 # Introduction 
 Action Monitor App
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# Modules
+1 - Listener-service (Using LogBack)
+    
+2 - Producer-service (Using SL4j from lombok)
 
-# Swagger v2
-http://localhost:8081/swagger-ui/index.html
+3 - Consumer-service (Using LogBack)
+
+4 - Web-socket (Using LogBack)
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+1 - Start Docker on the system
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better.
+2 - Run ./dockerBuildAndDeploy.sh
+
+# Stop de Application
+1 - Run docker-compose down
+
+# Interact with app
+1 - Send messages from Producer-service post endpoint:
+
+http://localhost:8081/swagger-ui/index.html#/producer-controller/sentMessageUsingPOST
+
+2 - Receive messages on Web-socket url:
+
+http://localhost:8083/
+
+# Tools used
+- Kafdrop: web UI for viewing Kafka topics and browsing consumer group.
+
+http://localhost:9000/
+
+- PGAdmin
+
+http://localhost:5050/
+
+# Issues
+Listener-service is commented out. 
+
+It uses pgjdbc-ng postgres library to List / Notify events from the database.
+
+https://jdbc.postgresql.org/documentation/81/listennotify.html
+
+Docker compose threw Connection refused: hostname not found for postgres server.
+
+Need more time to review. It is to be done!!
+
+# Improvements
+- Creation a common project with all shared objects/DTOs.
+
+- Addition of Sonarqube in docker-compose.yml to check code coverage in the apps.
+
+- Addition of PMD and CheckStyle for code quality.
+
+- Externalise config using Spring Cloud Config Server.
+
+- Authentication/Login for the chat users.
+
+- Using CDC (Change data capture pattern) using Debezium and Kafka connect instead of listeners.
