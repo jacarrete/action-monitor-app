@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,6 +13,6 @@ public class KafkaMessage {
 
     private String sender;
     private String message;
-    private LocalDateTime messageDateTime = LocalDateTime.now();
+    private String messageDateTime;
 
 }
