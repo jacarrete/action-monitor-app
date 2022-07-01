@@ -74,5 +74,8 @@ http://localhost:8081/actuator/info
 - Consumer version of application
 http://localhost:8082/actuator/info
 
-- Producer health of application
+- Producer health
 http://localhost:8081/actuator/health
+
+- Consumer health
+http://localhost:8082/actuator/health
