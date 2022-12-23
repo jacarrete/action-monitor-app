@@ -6,14 +6,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.annotation.DirtiesContext;
 
-import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
@@ -27,7 +27,7 @@ class ConsumerServiceTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Mock
+    @SpyBean
     private ConsumerService consumer;
 
     @Captor
@@ -40,7 +40,7 @@ class ConsumerServiceTest {
 
         template.send("transaction", message);
 
-        verify(consumer, times(0)).listen(userArgumentCaptor.capture());
+        verify(consumer, timeout(1000).times(1)).listen(userArgumentCaptor.capture());
     }
 
 }
